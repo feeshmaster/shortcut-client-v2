@@ -3,7 +3,7 @@
 
 //imports
 import { transformDraggable } from "./utils/actionFunctions.js";
-
+import './utils/main.css'
 
 let openMenuButton = document.createElement('div');
 openMenuButton.id = '_openMenuBtn_';
