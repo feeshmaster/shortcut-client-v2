@@ -3,5 +3,5 @@
 
 import { transformDraggable } from "./utils/actionFunctions.js";
 
-transformDraggable(document.body)
-console.log(2132132132132187631287312873126)
+let openMenuButton = document.createElement('div');
+openMenuButton.id = '_openMenuBtn_';
