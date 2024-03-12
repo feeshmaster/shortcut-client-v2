@@ -1,14 +1,14 @@
 //imports
 import { destroy } from './destroy.js'
+
 //todo: add css to the things later
+/*
 let styleMap = {
-    /*
     template
     "id": {
         style : "style",
         identifier: "__template__"
     }
-    */
    "id": {
      style: `width: 50px; height: 50px; background-color: #000; color: #fff;
      text-align: center; line-height: 50px; position: absolute; border-radius: 10px;
@@ -37,3 +37,4 @@ for (let style in styleMap) {
   }
 }
 console.log('loaded css.')
+*/
