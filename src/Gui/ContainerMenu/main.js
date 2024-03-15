@@ -11,6 +11,14 @@ const DefaultMenus = {
     Settings,
 }
 
-export default MainMenu {
-    
+export default {
+    show() {
+
+    },
+    hide() {
+
+    },
+    build() {
+      return
+    }
 }
