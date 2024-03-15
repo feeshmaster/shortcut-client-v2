@@ -12,21 +12,6 @@ export function transformDraggable(el, targetEl="self") {
     offsetY = e.type === 'touchstart' ? e.touches[0].clientY - el.getBoundingClientRect().top : e.clientY - el.getBoundingClientRect().top;
   }
   let mouseMoveHandler = function(e) {
-    //get screen parameters
-    let documentWidth = Math.max(
-      document.documentElement.clientWidth,
-      window.innerWidth || 0
-    );
-    let documentHeight = Math.max(
-      document.documentElement.clientHeight,
-      window.innerHeight || 0
-    );
-    let screenParameters = {
-      top: window.pageYOffset || document.documentElement.scrollTop,
-      left: window.pageXOffset || document.documentElement.scrollLeft,
-      right: (window.pageXOffset || document.documentElement.scrollLeft) + documentWidth,
-      bottom: (window.pageYOffset || document.documentElement.scrollTop) + documentHeight
-    }
     if (isDrag) {
       e.preventDefault();
       targetEl.style.left = (e.type === 'touchmove' ? e.touches[0].clientX : e.clientX) - offsetX + 'px';
