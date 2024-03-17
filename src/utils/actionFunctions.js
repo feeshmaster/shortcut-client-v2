@@ -1,6 +1,6 @@
 //function to make elements draggable
 import { settings } from './settings'
-//todo: make it so the drag uses the offset of the targetEl as well, making it not seem as if it teleports and making it much smoother
+//todo: rework the draggable function to be way better since its kinda terrible rn
 export function transformDraggable(el, targetEl="self") {
   el.style.position = "absolute"
   targetEl = targetEl === "self" ? el : targetEl

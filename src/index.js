@@ -1,13 +1,8 @@
 //create button to show and unshow it
 //load in and serve(use) all needed files to complete the menus and stuff
 
-//imports
-import { transformDraggable } from "./utils/actionFunctions.js";
-import './utils/main.css'
+//init build
 
-let openMenuButton = document.createElement('div');
-openMenuButton.id = '_openMenuBtn_';
-let root = document.body || document
+import Client from './build'
 
-root.appendChild(openMenuButton)
-transformDraggable(openMenuButton)
+Client.init()
