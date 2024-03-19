@@ -1,6 +1,7 @@
 //function to make elements draggable
 import { settings } from './settings'
 //todo: make it so the use of targetEl works as well
+//todo: also uh make it reset position when screen width and height change so it doesnt make it impossible to click
 export function transformDraggable(el, targetEl="self") {
   let bindEvent = function(element, event, handler) {
     element.addEventListener(event, handler)
