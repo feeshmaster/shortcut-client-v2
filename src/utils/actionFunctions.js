@@ -1,7 +1,6 @@
 //function to make elements draggable
 import { settings } from './settings'
 //todo: make it so the use of targetEl works as well
-//todo: also uh make it reset position when screen width and height change so it doesnt make it impossible to click
 export function transformDraggable(el, targetEl="self") {
   let bindEvent = function(element, event, handler) {
     element.addEventListener(event, handler)
@@ -26,7 +25,7 @@ export function transformDraggable(el, targetEl="self") {
       let Left = (e.type === 'touchmove' ? e.touches[0].clientX : e.clientX) - offsetX
       let Top = (e.type === 'touchmove' ? e.touches[0].clientY : e.clientY) - offsetY
       //if it goes past edges
-      
+
       if (Left < 0) {
         Left = 0
       }
@@ -52,10 +51,24 @@ export function transformDraggable(el, targetEl="self") {
         left: targetEl.style.left
     }));
   }
+  let adjustToFitOnResize = function() {
+    let oldLeft = el.style.left.slice(0, -2)
+    let oldTop = el.style.top.slice(0, -2)
+    console.log(oldTop, oldLeft)
+    if (oldLeft > window.innerWidth - targetEl.offsetWidth) {
+      oldLeft = window.innerWidth - targetEl.offsetWidth
+    }
+    if (oldTop > window.innerHeight - targetEl.offsetHeight) {
+      oldTop = window.innerHeight - targetEl.offsetHeight
+    }
+    el.style.left = oldLeft + "px"
+    el.style.top = oldTop + "px"
+  }
   bindEvent(el, "mousedown", dragStartHandler)
   bindEvent(el, "touchstart", dragStartHandler)
   bindEvent(window, "mouseup", mouseUpHandler)
   bindEvent(window, "touchend", mouseUpHandler)
+  bindEvent(window, "resize", adjustToFitOnResize)
 }
 
 export function toggleOpacityOnClick(e) {
