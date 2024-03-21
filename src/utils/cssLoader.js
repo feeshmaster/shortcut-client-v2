@@ -1,6 +1,9 @@
 //imports
 import { destroy } from './destroy.js'
 import './main.css'
+/*
+this is useless im pretty sure
+*/
 //todo: add css to the things later
 /*
 let styleMap = {

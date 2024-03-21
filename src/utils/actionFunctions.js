@@ -54,7 +54,6 @@ export function transformDraggable(el, targetEl="self") {
   let adjustToFitOnResize = function() {
     let oldLeft = el.style.left.slice(0, -2)
     let oldTop = el.style.top.slice(0, -2)
-    console.log(oldTop, oldLeft)
     if (oldLeft > window.innerWidth - targetEl.offsetWidth) {
       oldLeft = window.innerWidth - targetEl.offsetWidth
     }

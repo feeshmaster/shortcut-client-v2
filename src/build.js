@@ -13,17 +13,15 @@ export default  {
     },
     init_ContainerMenu() {
        ContainerMenu.init(this.root)
-       console.log(1)
     },
     init_Menus() {
        for (Menu in MenuInits) {
-          ContainerMenu.add(Menu.init())
-          console.log(1)
+          Menu.init()
+          ContainerMenu.add(Menu.HTML())
        }
     },
     init_EntryButton() {
        EntryBtn.init(root)
-       console.log(1)
     },
     destroy() {
 
