@@ -1,7 +1,7 @@
 //function to make elements draggable
 import { settings } from './settings'
 //todo: make it so the use of targetEl works as well
-export function transformDraggable(el, targetEl="self") {
+function addDrag(el, targetEl="self") {
   let bindEvent = function(element, event, handler) {
     element.addEventListener(event, handler)
   }
@@ -70,6 +70,10 @@ export function transformDraggable(el, targetEl="self") {
   bindEvent(window, "resize", adjustToFitOnResize)
 }
 
-export function toggleOpacityOnClick(e) {
+function toggleOpacityOnClick(e) {
   return 2
+}
+
+export default {
+  addDrag,
 }

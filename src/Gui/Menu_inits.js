@@ -5,7 +5,7 @@ import Shortcuts from './Menus/Shortcuts/Shortcuts'
 import About from './Menus/About/About'
 import Home from './Menus/Home/Home'
 
-export default DefaultMenus = {
+export default {
     Home,
     Shortcuts,
     Games,
