@@ -10,11 +10,11 @@ export default class ContainerMenu {
       this.buildClient()
     }
     show() {
-       this.container.style.display = 'block'
+       this.container.style.opacity = 1;
        this.showing = true
     }
     hide() {
-       this.container.style.display = 'none'
+       this.container.style.opacity = 0;
        this.showing = false
     }
     add(MenuObj) {

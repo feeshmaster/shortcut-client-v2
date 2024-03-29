@@ -4,7 +4,8 @@
      width: 600px;
      height: 400px;
      contain: content;
-     display: none;
+     opacity: 0;
+     transition: opacity 1s;
   }
   .__top-bar__ {
     background-color: rgb(157, 157, 157);
