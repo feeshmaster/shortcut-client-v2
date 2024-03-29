@@ -9,7 +9,6 @@ export default {
 
   },
   HTML() {
-    console.log(this.tag)
     return { loader: this.loader, tag: this.tag }
   }
 }

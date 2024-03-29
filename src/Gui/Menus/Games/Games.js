@@ -1,11 +1,15 @@
 export default {
   init() {
-    return this.createMenu()
+    this.createMenu()
   },
   createMenu() {
-    
+    this.tag = '<span class="__side-bar-span__"><i class="fa fa-gamepad-modern fa-fw"></i> Games</span>'
+    console.log(this.tag)
+  },
+  loader() {
+
   },
   HTML() {
-    return this.html !== null ? this.html : console.error('menu not initiated')
+    return { loader: this.loader, tag: this.tag }
   }
 }

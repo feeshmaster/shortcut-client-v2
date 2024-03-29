@@ -1,6 +1,6 @@
 export default {
   init() {
-    return this.createMenu()
+    this.createMenu()
   },
   createMenu() {
     this.tag = '<span class="__side-bar-span__"><i class="fa fa-code fa-fw"></i> Console</span>'
@@ -9,6 +9,6 @@ export default {
 
   },
   HTML() {
-    return { 'loader': this.loader, 'tag': this.tag }
+    return { loader: this.loader, tag: this.tag }
   }
 }

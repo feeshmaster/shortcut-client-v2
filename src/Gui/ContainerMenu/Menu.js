@@ -29,8 +29,9 @@ export default class ContainerMenu {
       container.className = '__main-menu__'
       container.innerHTML = `
       <div class="__top-bar__" id="__top-bar__"></div>
-      <div class="__menu-container__" id="__menu-container__></div>
-      <div class="__side-bar__" id="__side-bar__></div>`
+      <div class="__menu-container__" id="__menu-container__"></div>
+      <div class="__side-bar__" id="__side-bar__"></div>
+      `
       this.root.appendChild(container)
       this.container = container
       this.sidebar = document.getElementById('__side-bar__')
