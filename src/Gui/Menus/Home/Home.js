@@ -1,11 +1,15 @@
 export default {
   init() {
-    return this.createMenu()
+    this.createMenu()
   },
   createMenu() {
-    
+    this.tag = '<span class="__side-bar-span__"><i class="fa-solid fa-home fa-fw"></i> Home</span>'
+  },
+  loader() {
+
   },
   HTML() {
-    return this.html !== null ? this.html : console.error('menu not initiated')
+    console.log(this.tag)
+    return { loader: this.loader, tag: this.tag }
   }
 }

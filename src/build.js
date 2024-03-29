@@ -13,17 +13,18 @@ export default  {
        this.init_EntryButton()
     },
     init_ContainerMenu() {
-       ContainerMenu.init(this.root)
+       this.ContainerMenu = new ContainerMenu()
+       this.ContainerMenu.init(this.root)
     },
     init_Menus() {
        for (let Menu in MenuInits) {
           Menu = MenuInits[Menu]
           Menu.init()
-          ContainerMenu.add(Menu.HTML())
+          this.ContainerMenu.add(Menu.HTML())
        }
     },
     init_EntryButton() {
-       EntryBtn.init(this.root)
+       new EntryBtn().init(this.root, ()=>{if (this.ContainerMenu.showing) {this.ContainerMenu.hide()} else {this.ContainerMenu.show()}})
     },
     destroy() {
 

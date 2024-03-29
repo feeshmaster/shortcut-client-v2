@@ -1,11 +1,14 @@
 export default {
   init() {
-    return this.createMenu()
+    this.createMenu()
   },
   createMenu() {
-    
+    this.tag = '<span class="__side-bar-span__"><i class="fa-solid fa-grid-2 fa-fw"></i> Shortcuts</span>'
+  },
+  loader() {
+
   },
   HTML() {
-    return this.html !== null ? this.html : console.error('menu not initiated')
+    return { loader: this.loader, tag: this.tag }
   }
 }
