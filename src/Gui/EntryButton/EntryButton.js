@@ -9,6 +9,7 @@ export default class EntryBtn {
         this.root = root
         this.toggleClient = clientToggle
         this.buildSelf()
+        this.loadPosition()
     }
     buildSelf() {
       let self = document.createElement("div")
@@ -43,7 +44,6 @@ export default class EntryBtn {
       this.bindEvent(this.self, "touchend", this.toggle, this)
     }
     toggle() {
-      console.log(1)
       if (this.justMoved) {
         this.justMoved = false
         return
@@ -89,10 +89,12 @@ export default class EntryBtn {
       this.unbindEvent(document, "pointermove", this.mouseMoveHandler)
       this.unbindEvent(document, "touchmove", this.mouseMoveHandler)
       this.isDrag = false;
-      localStorage.setItem("_utilsMenuPos_", JSON.stringify({
-          top: this.self.style.top,
-          left: this.self.style.left
-      }));
+      let settings = Settings.getSettings()
+      settings._ClientBtnPos_ = {
+        top: this.self.style.top,
+        left: this.self.style.left
+      }
+      Settings.saveSettings(settings)
     }
     mouseMoveHandler(e) {
       if (this.isDrag) {
@@ -115,6 +117,16 @@ export default class EntryBtn {
         }
         this.self.style.top = this.Top + "px"
         this.self.style.left = this.Left + "px"
+      }
+    }
+    loadPosition() {
+      //set savePosition as default for now until i actually add the settings menu
+      let settings = Settings.getSettings()
+      settings.savePosition = true
+      Settings.saveSettings(settings)
+      if (Settings.getSettings().savePosition) {
+        this.self.style.top = Settings.getSettings()._ClientBtnPos_.top ? Settings.getSettings()._ClientBtnPos_.top : '0px'
+        this.self.style.left = Settings.getSettings()._ClientBtnPos_.left ? Settings.getSettings()._ClientBtnPos_.left : '0px'
       }
     }
 }
