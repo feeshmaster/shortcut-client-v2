@@ -20,7 +20,7 @@ export default  {
        for (let Menu in MenuInits) {
           Menu = MenuInits[Menu]
           Menu.init()
-          this.ContainerMenu.add(Menu.HTML())
+          this.ContainerMenu.add(Menu)
        }
        this.ContainerMenu.selectMenu('Home')
     },

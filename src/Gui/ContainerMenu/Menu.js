@@ -24,22 +24,22 @@ export default class ContainerMenu {
     }
     add(MenuObj) {
       //load menu
-      MenuObj.loader()
+      MenuObj.loader(this.menuContainer)
       //add option
       let sideBarOption = document.createElement('div');
       sideBarOption.className = '__side-bar-option__ '
       sideBarOption.innerHTML = MenuObj.tag;
       sideBarOption.onclick = () => {this.selectMenu(MenuObj.menu);}
       this.sidebar.appendChild(sideBarOption);
-      this.sideBarOptions[MenuObj.menu] = { elem: sideBarOption, show: MenuObj.show, hide: MenuObj.hide };
+      this.sideBarOptions[MenuObj.menu] = { elem: sideBarOption, menu: MenuObj };
     }
     selectMenu(menu) {
       if (menu === this.currentMenu) return;
       //unselect current menu
-      if (this.currentMenu) {this.sideBarOptions[this.currentMenu].hide();
+      if (this.currentMenu) {this.sideBarOptions[this.currentMenu].menu.hide();
       this.sideBarOptions[this.currentMenu].elem.classList.toggle('__selected__');}
       //select menu
-      this.sideBarOptions[menu].show()
+      this.sideBarOptions[menu].menu.show()
       this.sideBarOptions[menu].elem.classList.toggle('__selected__')
       this.currentMenu = menu
     }
@@ -54,7 +54,7 @@ export default class ContainerMenu {
       this.root.appendChild(container)
       this.container = container
       this.sidebar = document.getElementById('__side-bar__')
-      this.menuContainer = document.getElementById('__main-menu__')
+      this.menuContainer = document.getElementById('__menu-container__')
       this.topbar = document.getElementById('__top-bar__')
     }
     bindEvent(element, event, handler, ctx, config={}) {
