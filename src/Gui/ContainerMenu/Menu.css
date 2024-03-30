@@ -77,3 +77,7 @@
     display: block;
     height: 60px; 
   }
+
+.__side-bar-option__.__selected__ {
+  background-color: rgb(99, 203, 203);
+}

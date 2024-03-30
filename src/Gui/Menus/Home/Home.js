@@ -8,7 +8,13 @@ export default {
   loader() {
 
   },
+  show() {
+
+  },
+  hide() {
+
+  },
   HTML() {
-    return { loader: this.loader, tag: this.tag }
+    return { loader: this.loader, tag: this.tag, menu: 'Home', show: this.show, hide: this.hide}
   }
 }

@@ -64,9 +64,9 @@ export default class EntryBtn {
       this.bindEvent(this.self, "touchstart", this.dragStartHandler, this, { passive: true })
       this.bindEvent(window, "mouseup", this.mouseUpHandler, this)
       this.bindEvent(window, "touchend", this.mouseUpHandler, this)
-      this.bindEvent(window, "resize", this.adjustToFitOnResize, this)
+      this.bindEvent(window, "resize", this.adjustToFit, this)
     }
-    adjustToFitOnResize() {
+    adjustToFit() {
       this.oldLeft = this.self.style.left.slice(0, -2)
       this.oldTop = this.self.style.top.slice(0, -2)
       if (this.oldLeft > window.innerWidth - this.self.offsetWidth) {
@@ -124,9 +124,14 @@ export default class EntryBtn {
       let settings = Settings.getSettings()
       settings.savePosition = true
       Settings.saveSettings(settings)
+
       if (Settings.getSettings().savePosition) {
         this.self.style.top = Settings.getSettings()._ClientBtnPos_.top ? Settings.getSettings()._ClientBtnPos_.top : '0px'
         this.self.style.left = Settings.getSettings()._ClientBtnPos_.left ? Settings.getSettings()._ClientBtnPos_.left : '0px'
+      } else {
+        this.self.style.top = 0
+        this.self.style.left = 0
       }
+      this.adjustToFit()
     }
 }

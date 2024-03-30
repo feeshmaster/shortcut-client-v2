@@ -22,6 +22,7 @@ export default  {
           Menu.init()
           this.ContainerMenu.add(Menu.HTML())
        }
+       this.ContainerMenu.selectMenu('Home')
     },
     init_EntryButton() {
        new EntryBtn().init(this.root, ()=>{if (this.ContainerMenu.showing) {this.ContainerMenu.hide()} else {this.ContainerMenu.show()}})
