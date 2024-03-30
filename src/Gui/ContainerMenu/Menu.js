@@ -46,6 +46,8 @@ export default class ContainerMenu {
     buildClient() {
       let container = document.createElement('div')
       container.className = '__main-menu__'
+      container.style.top = '0px';
+      container.style.left = '0px';
       container.innerHTML = `
       <div class="__top-bar__" id="__top-bar__"></div>
       <div class="__menu-container__" id="__menu-container__"></div>
@@ -81,6 +83,12 @@ export default class ContainerMenu {
       }
       if (this.oldTop > window.innerHeight - this.container.offsetHeight) {
         this.oldTop = window.innerHeight - this.container.offsetHeight
+      }
+      if (this.oldLeft < 0) {
+        this.oldLeft = 0
+      }
+      if (this.oldTop < 0) {
+        this.oldTop = 0
       }
       this.container.style.left = this.oldLeft + "px"
       this.container.style.top = this.oldTop + "px"

@@ -75,6 +75,12 @@ export default class EntryBtn {
       if (this.oldTop > window.innerHeight - this.self.offsetHeight) {
         this.oldTop = window.innerHeight - this.self.offsetHeight
       }
+      if (this.oldLeft < 0) {
+        this.oldLeft = 0
+      }
+      if (this.oldTop < 0) {
+        this.oldTop = 0
+      }
       this.self.style.left = this.oldLeft + "px"
       this.self.style.top = this.oldTop + "px"
     }
